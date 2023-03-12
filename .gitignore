@@ -2,3 +2,4 @@ node_modules/*
 run.bat
 .env
 .prettierrc
+node_*.tmp.js
