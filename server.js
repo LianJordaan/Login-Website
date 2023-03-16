@@ -1,4 +1,3 @@
-const express = require('express');
 const app = require('./.data/app.js');
 require('dotenv').config();
 
