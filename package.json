@@ -9,14 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.1.1",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "mongoose": "^7.5.0",
+<<<<<<< HEAD
     "nodemailer": "^6.6.3",
+=======
+>>>>>>> 3e7e19708d42aeefaa6daf223dfe999d670e696b
     "mysql": "^2.18.1"
   }
 }
