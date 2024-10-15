@@ -359,32 +359,6 @@ app.post('/link-account', async (req, res) => {
     }
 });
 
-// Function to read the mapping from the file
-function readMappings() {
-    const data = fs.readFileSync('images.txt', 'utf8');
-    const mappings = {};
-    const lines = data.split('\n');
-    for (const line of lines) {
-        const [key, value] = line.split('=');
-        if (key && value) {
-            mappings[key.trim()] = value.trim();
-        }
-    }
-    return mappings;
-}
-
-app.get('/api/image/:id', (req, res) => {
-    const id = req.params.id;
-    const mappings = readMappings();
-    
-    const imageUrl = mappings[id];
-    if (imageUrl) {
-        res.json({ url: imageUrl });
-    } else {
-        res.status(404).json({ error: 'Image not found' });
-    }
-});
-
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
