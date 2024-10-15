@@ -9,7 +9,7 @@ const crypto = require('crypto'); // For generating random tokens
 require('dotenv').config();
 
 const app = express();
-const port = 21032;
+const port = process.env.PORT;
 
 const nodemailer = require('nodemailer');
 
@@ -356,6 +356,32 @@ app.post('/link-account', async (req, res) => {
         console.error('Error:', error);
         // Render the 'link-account.ejs' page with an error message
         res.render('link-account.ejs', { errorMessage: 'An error occurred', user: req.session.user });
+    }
+});
+
+// Function to read the mapping from the file
+function readMappings() {
+    const data = fs.readFileSync('images.txt', 'utf8');
+    const mappings = {};
+    const lines = data.split('\n');
+    for (const line of lines) {
+        const [key, value] = line.split('=');
+        if (key && value) {
+            mappings[key.trim()] = value.trim();
+        }
+    }
+    return mappings;
+}
+
+app.get('/api/image/:id', (req, res) => {
+    const id = req.params.id;
+    const mappings = readMappings();
+    
+    const imageUrl = mappings[id];
+    if (imageUrl) {
+        res.json({ url: imageUrl });
+    } else {
+        res.status(404).json({ error: 'Image not found' });
     }
 });
 

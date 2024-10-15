@@ -1,0 +1,3 @@
+mainBackground=https://i.imgur.com/vZhfhJ2.png
+alternativeBackground=https://i.imgur.com/cfxT2mB.png
+smallIcon=https://i.imgur.com/3nZ6jX2.png

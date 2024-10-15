@@ -3,3 +3,4 @@ run.bat
 .env
 .prettierrc
 node_*.tmp.js
+.vscode/*
